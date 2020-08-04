@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数据渲染</title>
+</head>
+<body>
+  <div id="app">
+    <!-- 文本数据渲染 -->
+    <h2>{{ msg }}</h2>
+    <h2 v-text="msg"></h2>
+    <h2>{{ msg + " hello Vue" }}</h2>
+    <h2>{{ num + 1 }}</h2>
+    <h2>{{ msg.split('').reverse().join('') }}</h2>
+    <h2>============</h2>
+    <!-- 条件与循环 -->
+    <h2 v-if="num > 0">Num > 2 (v-if)</h2>
+    <h2 v-if="num < 0">Num < 0 (hidden)</h2>
+    <h2 v-show="num > 0">Num > 2 (v-show)</h2>
+    <h2 v-show="num < 0">Num < 2 (display: none)</h2>
+    <h2 v-for="item in years">{{ item }}</h2>
+    <h2>============</h2>
+    <h2>num: {{ num }}</h2>
+    <button v-on:click="num--">num--</button>
+    <button @click="num++">num++</button>
+    <button @click="alertMsg">alertMsg</button>
+    <input type="text" v-model="num">
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data () {
+        return {
+          msg: 'hello Vue',
+          num: 2020,
+          years: [2020, 2021, 2022, 2023, 2024]
+        }
+      },
+      methods: {
+        alertMsg() {
+          alert('hello Vue')
+        }
+      },
+    })
+  </script>
+</body>
+</html>
